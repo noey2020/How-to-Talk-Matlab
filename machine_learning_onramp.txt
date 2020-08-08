@@ -1,0 +1,116 @@
+Import Data
+
+Task 1
+
+You can use the readtable function to import tabular data from a spreadsheet or
+text file and store the result as a table.
+
+data = readtable("myfile.xlsx");
+
+This imports the data from the spreadsheet myfile.xlsx and stores it in a table
+called data.
+
+Task
+Read the data stored in the file "J.txt" into a variable named letter.
+
+letter = readtable("J.txt");
+
+Task 2
+
+You can use dot notation to refer to any individual variable within a table
+
+x = mytable.Xdata;
+y = mytable.Ydata;
+
+This extracts the variable Xdata from the table mytable and stores the result
+in a new variable called x. Similarly, the variable Ydata is extracted into y.
+
+Task
+Visualize the letter by plotting the X variable of letter on the horizontal
+axis and the Y variable on the vertical axis.
+
+plot(letter.X,letter.Y)
+
+Task 3
+
+The default axis limits distort the aspect ratio of the letter. You can use 
+the axis command to force the axes to preserve the aspect ratio of the data.
+
+Task
+Use the command axis equal to correct the aspect ratio of the plot.
+
+axis equal
+
+Task 4
+
+Task
+Repeat the same importing and plotting tasks for the data in the file M.txt.
+
+letter = readtable("M.txt");
+plot(letter.X,letter.Y)
+axis equal
+
+Further Practice
+
+Try viewing the data in the file V.txt.
+
+Remember that you can execute your script by clicking the Run or Run Section
+buttons in the MATLAB Toolstrip.
+
+When you're finished practicing, you may move on to the next section.
+
+letter = readtable("V.txt");
+plot(letter.X,letter.Y)
+axis equal
+
+Process Data
+
+Task 1
+
+You can use dot notation to extract, modify, and reassign variables in a table,
+just as you would with any variable.
+
+x = x + 3;
+data.XVal = data.XVal + 3;
+
+Task
+Multiply the values in the X variable of the table letter by the aspect ratio
+of 1.5. Reassign the result back to X so that letter contains the corrected
+data.
+
+letter = readtable("M.txt")
+letter.X = 1.5*letter.X;
+plot(letter.X,letter.Y)
+axis equal
+
+Task 2
+
+You can index into variables in a table, just as you would with any variable.
+
+finalX = data.XVal(end);
+
+Task
+Shift the Time variable of the table letter to start at 0 by subtracting the 
+first value from all elements. Divide the result by 1000 to convert to seconds.
+Reassign the result back to Time so that letter contains the adjusted data.
+
+letter.Time = letter.Time - letter.Time(1)
+letter.Time = letter.Time/1000
+plot(letter.Time,letter.X)
+plot(letter.Time,letter.Y)
+
+Further Practice
+
+Check that your code works for J.txt and V.txt without having to modify 
+anything except the file name.
+
+
+Extract Features - Calculating Features
+
+Task 1
+
+A feature is simply a value calculated from the signal, such as its duration.
+
+Task
+Calculate the time taken to write the letter by extracting the last value of
+letter.Time and storing the result in a variable called dur.
